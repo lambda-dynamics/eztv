@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo echo -n
+
 ./setup-env.sh
 ./setup-ctrl.sh
 ./setup-gems.sh
