@@ -1,0 +1,10 @@
+[Unit]
+Description=EZTV Controller Web Interface
+After=nginx.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/rackup -p 80 -s thin -E production /home/eztv/OBS-REPO/eztv-controller/config.ru
+
+[Install]
+WantedBy=multi-user.target

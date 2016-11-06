@@ -1,0 +1,15 @@
+#!/usr/bin/ruby
+
+require 'httparty'
+USER = ENV['EZTVUSER']
+
+`echo At #{Time.now.to_s} >> /home/#{USER}/mountlog`
+`echo "Running..." >> /home/#{USER}/mountlog`
+if ENV['ID_USB_DRIVER'] == "usb-storage"
+    `echo "Mounting #{ENV['DEVNAME']}" >> /home/#{USER}/mountlog`
+`mkdir /home/#{USER}/drive`
+`mount #{ENV['DEVNAME']} /home/#{USER}/drive 2>1 >> /home/#{USER}/mountlog`
+
+response = HTTParty.get('http://localhost/mount_success')
+`echo #{response.inspect} >> /home/#{USER}/mountlog`
+end
