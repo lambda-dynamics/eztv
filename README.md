@@ -15,7 +15,7 @@
   - Once the installer finishes, follow the instructions to remove the install media & reboot the machine.
 - Once you're on the desktop, click the main menu button (blue circle with a mouse icon in the upper-left) and start the "Terminal Emulator"
   - Copy & paste (right click > paste) the following into the terminal: `wget -q -O - https://bitbucket.org/lambdadynamics/eztv/raw/master/download.sh | bash` and hit ENTER to download everything
-  - Copy & paste `cd EZTV && ./setup.sh` and hit ENTER to begin installing the EZTV software.  It will prompt you for your password before it starts - it won't show anything as you type.
+  - Copy & paste `cd EZTV && sudo ./setup.sh` and hit ENTER to begin installing the EZTV software.  It will prompt you for your password before it starts - it won't show anything as you type.
     - Installing will take a few minutes...
   - Once it's done, reboot. (`sudo reboot` in the terminal or click the power button in the lower-right of the main menu)
 - When the computer comes back on, it should have 2 things open: a web browser and OBS.  
