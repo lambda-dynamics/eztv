@@ -4,7 +4,7 @@ After=nginx.service
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/rackup -p 80 -s thin -E production /home/eztv/OBS-REPO/eztv-controller/config.ru
+ExecStart=/usr/local/bin/rackup -p 80 -s thin -E production /home/eztv/EZTV/eztv-controller/config.ru
 
 [Install]
 WantedBy=multi-user.target

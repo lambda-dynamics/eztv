@@ -11,11 +11,11 @@ unzip master.zip
 
 cd nginx-1.11.5
 ./configure --with-http_ssl_module --add-module=../nginx-rtmp-module-master
-make && make install
+make && sudo make install
 
-cp $REPO/nginx.conf /usr/local/nginx/conf
-cp $REPO/stat.xsl /usr/local/nginx/html
-cp $REPO/nginx.service /lib/systemd/system/
-systemctl enable nginx
+sudo cp $REPO/nginx.conf /usr/local/nginx/conf
+sudo cp $REPO/stat.xsl /usr/local/nginx/html
+sudo cp $REPO/nginx.service /lib/systemd/system/
+sudo systemctl enable nginx
 
 rm -rf nginx-build
