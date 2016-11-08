@@ -33,19 +33,19 @@ class OBSControl < Sinatra::Base
     end
 
     get '/reset' do
-        `rm /tmp/*.flv`
-        `rm /tmp/*.mp4`
+        `rm /home/eztv/*.flv`
+        `rm /home/eztv/*.mp4`
         `umount /home/eztv/drive`
         [200, "OK"]
     end
 
     get '/finish' do
-        `ffmpeg -i /tmp/eztv.flv -c copy -copyts /tmp/eztv.mp4`
+        `ffmpeg -i /home/eztv/eztv.flv -c copy -copyts /home/eztv/eztv.mp4`
         fn = "EZTVRecord-#{Time.now.strftime('%Y-%m-%d-%I-%M-%p')}.mp4"
-        `cp /tmp/eztv.mp4 /home/eztv/drive/#{fn}`
-        `mv /tmp/eztv.flv /home/eztv/#{fn}.flv`
-        `rm /tmp/*.flv`
-        `rm /tmp/*.mp4`
+        `cp /home/eztv/eztv.mp4 /home/eztv/drive/#{fn}`
+        `mv /home/eztv/eztv.flv /home/eztv/#{fn}.flv`
+        `rm /home/eztv/*.flv`
+        `rm /home/eztv/*.mp4`
         `umount /home/eztv/drive`
         [200, "OK"]
     end
