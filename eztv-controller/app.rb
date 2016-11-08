@@ -21,7 +21,7 @@ class OBSControl < Sinatra::Base
     end
 
     get '/disk' do
-        out = `df | grep #{ENV['EZTVUSER']}`.split(' ')
+        out = `df | grep eztv`.split(' ')
         used, cap = out[2].to_i, out[3].to_i
         free = cap - used
         limit = free / 50.0 / 1024.0
@@ -35,18 +35,18 @@ class OBSControl < Sinatra::Base
     get '/reset' do
         `rm /tmp/*.flv`
         `rm /tmp/*.mp4`
-        `umount /home/#{ENV['EZTVUSER']}/drive`
+        `umount /home/eztv/drive`
         [200, "OK"]
     end
 
     get '/finish' do
         `ffmpeg -i /tmp/eztv.flv -c copy -copyts /tmp/eztv.mp4`
         fn = "EZTVRecord-#{Time.now.strftime('%Y-%m-%d-%I-%M-%p')}.mp4"
-        `cp /tmp/eztv.mp4 /home/#{ENV['EZTVUSER']}/drive/#{fn}`
-        `mv /tmp/eztv.flv /home/#{ENV['EZTVUSER']}/#{fn}.flv`
+        `cp /tmp/eztv.mp4 /home/eztv/drive/#{fn}`
+        `mv /tmp/eztv.flv /home/eztv/#{fn}.flv`
         `rm /tmp/*.flv`
         `rm /tmp/*.mp4`
-        `umount /home/#{ENV['EZTVUSER']}/drive`
+        `umount /home/eztv/drive`
         [200, "OK"]
     end
 
