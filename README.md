@@ -14,17 +14,20 @@
   - Use "eztv" for the username & choose "log in automatically" - the rest of the "Who are you?" screen is your choice.
   - Once the installer finishes, follow the instructions to remove the install media & reboot the machine.
 - Once you're on the desktop, click the main menu button (blue circle with a mouse icon in the upper-left) and start the "Terminal Emulator"
-  - Copy & paste (right click > paste) the following into the terminal: `wget -q -O - https://bitbucket.org/lambdadynamics/eztv/raw/master/download.sh | bash` and hit ENTER to download everything
+  - Copy & paste (right click > paste) the following into the terminal: `wget -q -O - https://raw.githubusercontent.com/lambdadynamics/eztv/master/download.sh | bash` and hit ENTER to download everything
   - Copy & paste `cd EZTV && sudo ./setup.sh` and hit ENTER to begin installing the EZTV software.  It will prompt you for your password before it starts - it won't show anything as you type.
     - Installing will take a few minutes...
   - Once it's done, reboot. (`sudo reboot` in the terminal or click the power button in the lower-right of the main menu)
-- When the computer comes back on, it should have 2 things open: a web browser and OBS.  
-  - You need to set up your webcam/video capture card, microphone, and any software effects in OBS (you should only need to do this once)
+- When the computer comes back on, it should have 2 things open: a web browser and OBS. You have a few little setup things to do: 
+  - You need to set up your webcam/video capture card, microphone, and any software effects in OBS
+  - In the OBS settings, change the streaming settings to use a custom server at `rtmp://localhost/eztv` with a stream key of `eztv`
+  - You probably want to set the video resolution to something sane too
+- Here's what you need to do after you finish setting up or after you reboot:
   - Click "Start Streaming" in OBS
   - Use the browser to go to http://localhost/, then hit F11 to go into full screen mode.
   - You're ready to record some video!
 
 
-## TODO
- - Copy OBS profile
- - Set firefox home page
+## Things we Need to do
+ - Copy a good default OBS profile
+ - Script firefox home page
